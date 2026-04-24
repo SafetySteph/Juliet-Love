@@ -18,15 +18,16 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 90%;
-        max-width: 1000px;
         gap: 40px;
+        width: 90%;
+        max-width: 1100px;
       }
 
-      .side-buttons {
+      .side {
         display: flex;
         flex-direction: column;
         gap: 15px;
+        width: 220px;
       }
 
       .card {
@@ -41,7 +42,6 @@
 
       h1 {
         color: #7a3e2d;
-        font-size: 34px;
         margin-bottom: 10px;
       }
 
@@ -50,15 +50,24 @@
         font-size: 16px;
       }
 
-      #haikuBox {
-        margin-top: 25px;
+      .box {
+        padding: 15px;
+        border-radius: 15px;
+        background: #fff0f5;
+        border: 2px dashed #c48a45;
+        font-size: 16px;
+        color: #4a2814;
+        min-height: 60px;
+      }
+
+      #mainBox {
+        margin-top: 20px;
         padding: 25px;
         border-radius: 20px;
         background: #fff0f5;
         border: 2px dashed #c48a45;
         font-size: 22px;
-        color: #4a2814;
-        min-height: 120px;
+        min-height: 140px;
         white-space: pre-line;
       }
 
@@ -66,23 +75,20 @@
         background: linear-gradient(145deg, #d291bc, #a0522d);
         color: #fffaf5;
         border: 2px solid #7b4a2f;
-        padding: 14px 18px;
-        border-radius: 25px;
-        font-size: 15px;
+        padding: 12px;
+        border-radius: 20px;
+        font-size: 14px;
         cursor: pointer;
         font-weight: bold;
-        box-shadow: 0 6px 0 #7b4a2f;
-        transition: 0.2s;
+        box-shadow: 0 5px 0 #7b4a2f;
       }
 
       button:hover {
         transform: translateY(-2px);
-        background: linear-gradient(145deg, #e8a2c6, #8b4513);
       }
 
       button:active {
         transform: translateY(2px);
-        box-shadow: 0 3px 0 #7b4a2f;
       }
     </style>
   </head>
@@ -90,23 +96,30 @@
   <body>
     <div class="container">
 
-      <div class="side-buttons">
+      <!-- LEFT SIDE -->
+      <div class="side">
         <button onclick="generateNickname()">🤍 Cutesy Nickname</button>
+        <div id="nicknameBox" class="box">Nickname appears here</div>
+
         <button onclick="generateAmazingThing()">🌸 Amazing Thing</button>
+        <div id="amazingBox" class="box">Amazing thing appears here</div>
       </div>
 
+      <!-- CENTER -->
       <div class="card">
         <h1>Juliet Chevelle</h1>
         <p>soft ranch poetry for a one of a kind girl</p>
 
-        <div id="haikuBox">
-Click a button to begin 🤍
+        <div id="mainBox">
+Click something to begin 🤍
         </div>
       </div>
 
-      <div class="side-buttons">
-        <button onclick="generateHaiku()">🐎 Create Haiku</button>
+      <!-- RIGHT SIDE -->
+      <div class="side">
+        <button onclick="generateHaiku()">🐎 Haiku</button>
         <button onclick="generateCutesyThing()">🎀 Cutesy Thing</button>
+        <button onclick="generateFunnyPoem()">🤠 Funny Poem</button>
       </div>
 
     </div>
@@ -132,74 +145,63 @@ Click a button to begin 🤍
           "Princess"
         ];
 
-        const randomIndex = Math.floor(Math.random() * nicknames.length);
-        currentNickname = nicknames[randomIndex];
+        const i = Math.floor(Math.random() * nicknames.length);
+        currentNickname = nicknames[i];
 
-        document.getElementById("haikuBox").innerText =
-          "Nickname:\n" + currentNickname;
+        document.getElementById("nicknameBox").innerText = currentNickname;
       }
 
       function generateAmazingThing() {
         const amazingThings = [
-          "she carries kindness like sunshine across an open field",
-          "she has a heart that makes people feel safe and loved",
-          "she brings joy into a room without even trying",
-          "she is strong, gentle, and beautifully one of a kind",
-          "she has a light that feels warm, steady, and true",
-          "she makes ordinary moments feel sweet and memorable",
-          "she is thoughtful, lovely, and full of grace",
-          "she has a spirit as bright as a western sunset",
-          "she is the kind of person people feel lucky to know",
-          "she carries beauty, strength, and sweetness all at once",
-          "she is an amazing cook who brings people together",
-          "she is an intentional friend who truly shows up",
-          "she is absolutely smokin hot and effortlessly radiant",
-          "she is a deep thinker who sees beyond the surface",
-          "she is a deep lover who gives with her whole heart",
-          "she is compassionate and full of genuine care",
-          "she is a great dance partner who brings joy to movement",
-          "she is a great companion who makes life feel fuller",
-          "she is hilarious and makes everything feel lighter"
+          "she is an amazing cook",
+          "she is an intentional friend",
+          "she is smokin hot",
+          "she is a deep thinker",
+          "she is a deep lover",
+          "she is compassionate",
+          "she is a great dance partner",
+          "she is a great companion",
+          "she is hilarious"
         ];
 
-        const randomIndex = Math.floor(Math.random() * amazingThings.length);
-        currentAmazingThing = amazingThings[randomIndex];
+        const i = Math.floor(Math.random() * amazingThings.length);
+        currentAmazingThing = amazingThings[i];
 
-        document.getElementById("haikuBox").innerText =
-          "About her:\n" + currentAmazingThing;
+        document.getElementById("amazingBox").innerText = currentAmazingThing;
       }
 
       function generateHaiku() {
-        if (currentNickname === "") generateNickname();
-        if (currentAmazingThing === "") generateAmazingThing();
+        if (!currentNickname) generateNickname();
+        if (!currentAmazingThing) generateAmazingThing();
 
         const haiku =
           currentNickname + "\n" +
-          "soft light across the plains\n" +
+          "soft light on open plains\n" +
           currentAmazingThing;
 
-        document.getElementById("haikuBox").innerText = haiku;
+        document.getElementById("mainBox").innerText = haiku;
       }
 
       function generateCutesyThing() {
-        if (currentNickname === "") generateNickname();
-        if (currentAmazingThing === "") generateAmazingThing();
+        if (!currentNickname) generateNickname();
+        if (!currentAmazingThing) generateAmazingThing();
 
-        const phrases = [
-          currentNickname + " is " + currentAmazingThing + ".",
-          currentNickname + " is just casually " + currentAmazingThing + ".",
-          currentNickname + " somehow always reminds people that " + currentAmazingThing + ".",
-          "No one does it like " + currentNickname + ", especially because " + currentAmazingThing + ".",
-          currentNickname + " is ranch royalty, and honestly, " + currentAmazingThing + ".",
-          currentNickname + " has that soft cowgirl magic because " + currentAmazingThing + "."
-        ];
+        document.getElementById("mainBox").innerText =
+          currentNickname + " is " + currentAmazingThing + " 🤍";
+      }
 
-        const randomIndex = Math.floor(Math.random() * phrases.length);
+      function generateFunnyPoem() {
+        if (!currentNickname) generateNickname();
+        if (!currentAmazingThing) generateAmazingThing();
 
-        document.getElementById("haikuBox").innerText = phrases[randomIndex];
+        const poem =
+          currentNickname + "\n" +
+          "lost a boot but kept her crown\n" +
+          currentAmazingThing + "\n" +
+          "and somehow runs the whole town";
+
+        document.getElementById("mainBox").innerText = poem;
       }
     </script>
   </body>
 </html>
-   
-      

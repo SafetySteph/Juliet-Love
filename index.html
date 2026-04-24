@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
   <head>
-    <title>Princess Juliet </title>
+    <title>Juliet Chevelle Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -140,7 +140,7 @@
 
       <div class="panel">
         <div class="emoji">✨🤠</div>
-        <h2>Amazing Thing</h2>
+        <h2>Amazing Things</h2>
         <button onclick="generateAmazingThing()">Generate Amazing Thing</button>
         <div id="amazingBox" class="box">amazing thing appears here</div>
       </div>
@@ -173,18 +173,16 @@
 
       function generateAmazingThing() {
         const amazingThings = [
-          "an amazing cook",
-          "an intentional friend",
-          "smokin hot",
-          "a deep thinker",
-          "a deep lover",
-          "compassionate",
-          "a great dance partner",
-          "a great companion",
-          "hilarious",
-          "kind hearted",
-          "full of grace",
-          "soft but strong"
+          "loyal",
+          "intelligent",
+          "funny",
+          "talented",
+          "wise",
+          "smokin' hot",
+          "adventurous",
+          "family oriented",
+          "an amazing friend",
+          "a princess"
         ];
 
         currentAmazingThing = amazingThings[Math.floor(Math.random() * amazingThings.length)];
@@ -200,42 +198,19 @@
           generateAmazingThing();
         }
 
-        const haikuLines = [
-          currentNickname + "\n" +
-          "soft light fills the plains\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "wildflowers bend toward her\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "gold dust rides the wind\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "moonlight on the ranch\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "boots move through soft grass\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "sunset wraps the sky\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "laughter fills the barn\n" +
-          "she is " + currentAmazingThing,
-
-          currentNickname + "\n" +
-          "rose petals drift slow\n" +
-          "she is " + currentAmazingThing
+        const haikus = [
+          currentNickname + "\nsoft light fills the plains\nshe is " + currentAmazingThing,
+          currentNickname + "\nwildflowers bend toward her\nshe is " + currentAmazingThing,
+          currentNickname + "\ngold dust rides the wind\nshe is " + currentAmazingThing,
+          currentNickname + "\nmoonlight on the ranch\nshe is " + currentAmazingThing,
+          currentNickname + "\nboots move through soft grass\nshe is " + currentAmazingThing,
+          currentNickname + "\nsunset wraps the sky\nshe is " + currentAmazingThing,
+          currentNickname + "\nlaughter fills the barn\nshe is " + currentAmazingThing,
+          currentNickname + "\nrose petals drift slow\nshe is " + currentAmazingThing
         ];
 
-        const randomIndex = Math.floor(Math.random() * haikuLines.length);
-        document.getElementById("haikuBox").innerText = haikuLines[randomIndex];
+        const randomIndex = Math.floor(Math.random() * haikus.length);
+        document.getElementById("haikuBox").innerText = haikus[randomIndex];
       }
     </script>
   </body>

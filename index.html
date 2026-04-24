@@ -1,296 +1,486 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Princess Juliet </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-      * {
-        box-sizing: border-box;
+  <title>For Juliet</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #3f2f24;
+      background:
+        linear-gradient(rgba(255, 248, 238, 0.78), rgba(255, 248, 238, 0.78)),
+        url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .phone-frame {
+      width: 100%;
+      max-width: 430px;
+      min-height: 850px;
+      background: rgba(255, 250, 240, 0.9);
+      border: 8px solid #3f2f24;
+      border-radius: 42px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      position: relative;
+      backdrop-filter: blur(6px);
+    }
+
+    .top-bar {
+      width: 120px;
+      height: 6px;
+      border-radius: 20px;
+      background: #3f2f24;
+      margin: 18px auto 0;
+      opacity: 0.8;
+    }
+
+    header {
+      text-align: center;
+      padding: 24px 22px 12px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      color: #6f4e37;
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.98rem;
+      line-height: 1.5;
+      color: #70594a;
+    }
+
+    .wildflower-divider {
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 8px 0 18px;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 0 22px;
+    }
+
+    button {
+      border: none;
+      border-radius: 22px;
+      padding: 16px 18px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fffaf0;
+      background: linear-gradient(135deg, #a86f4c, #6f8f72);
+      box-shadow: 0 8px 18px rgba(63, 47, 36, 0.22);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 22px rgba(63, 47, 36, 0.3);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .output-card {
+      margin: 22px;
+      padding: 22px;
+      min-height: 220px;
+      border-radius: 26px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 2px solid rgba(168, 111, 76, 0.25);
+      box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1.7;
+      font-size: 1.1rem;
+      color: #3f2f24;
+      white-space: pre-line;
+    }
+
+    .playlist {
+      padding: 0 22px 120px;
+      text-align: center;
+    }
+
+    .playlist a {
+      display: inline-block;
+      text-decoration: none;
+      border-radius: 22px;
+      padding: 14px 18px;
+      color: #fffaf0;
+      background: linear-gradient(135deg, #3f2f24, #7a5c46);
+      font-weight: bold;
+      box-shadow: 0 8px 18px rgba(63, 47, 36, 0.22);
+    }
+
+    .footer-note {
+      font-size: 0.78rem;
+      margin-top: 12px;
+      color: #7d6654;
+      line-height: 1.4;
+    }
+
+    .flowers {
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 95px;
+      pointer-events: none;
+      opacity: 0.85;
+      background: linear-gradient(transparent, rgba(255, 246, 230, 0.95));
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      font-size: 2rem;
+      padding-bottom: 12px;
+    }
+
+    @media (min-width: 900px) {
+      .phone-frame {
+        max-width: 900px;
+        min-height: 720px;
+        border-radius: 36px;
       }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: Georgia, serif;
-        background:
-          linear-gradient(rgba(255, 245, 235, 0.55), rgba(255, 245, 235, 0.55)),
-          url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 24px;
-        color: #4a2814;
+      .button-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
 
-      .phone {
-        width: 390px;
-        max-width: 100%;
-        min-height: 760px;
-        background: #fffaf5;
-        border: 10px solid #3a2418;
-        border-radius: 48px;
-        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
-        overflow: hidden;
-        position: relative;
+      .output-card {
+        min-height: 230px;
+        font-size: 1.25rem;
       }
+    }
+  </style>
+</head>
 
-      .notch {
-        width: 120px;
-        height: 26px;
-        background: #3a2418;
-        border-radius: 0 0 18px 18px;
-        margin: 0 auto;
-      }
+<body>
+  <main class="phone-frame">
+    <div class="top-bar"></div>
 
-      .screen {
-        padding: 24px;
-        text-align: center;
-      }
+    <header>
+      <h1>For Juliet</h1>
+      <p class="subtitle">
+        A little wildflower corner of the internet made just for her.
+      </p>
+    </header>
 
-      .emoji {
-        font-size: 34px;
-        margin-top: 8px;
-      }
+    <div class="wildflower-divider">🌼 🌿 🌸 🌾 🌻</div>
 
-      h1 {
-        margin: 8px 0 6px;
-        color: #7a3e2d;
-        font-size: 30px;
-      }
+    <section class="button-grid">
+      <button onclick="generateNickname()">Cute Nickname</button>
+      <button onclick="generateAmazingThing()">Something Amazing</button>
+      <button onclick="generateHaiku()">Haiku</button>
+      <button onclick="generateScripture()">Scripture for Her</button>
+    </section>
 
-      .subtitle {
-        margin: 0 0 20px;
-        color: #9b6337;
-        font-size: 14px;
-        line-height: 1.5;
-      }
+    <section class="output-card" id="output">
+      Tap a button and let the flowers say something sweet.
+    </section>
 
-      .section {
-        background: rgba(255, 240, 245, 0.85);
-        border: 2px dashed #c48a45;
-        border-radius: 24px;
-        padding: 16px;
-        margin-bottom: 16px;
-      }
+    <section class="playlist">
+      <a href="https://open.spotify.com/search/Zach%20Bryan%20Charles%20Wesley%20Godwin" target="_blank">
+        Play Juliet’s Playlist
+      </a>
 
-      .label {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        color: #9b6337;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
+      <p class="footer-note">
+        Replace this with your own Spotify, Apple Music, or YouTube playlist link.
+      </p>
+    </section>
 
-      .box {
-        background: #fffaf5;
-        border-radius: 18px;
-        padding: 16px;
-        min-height: 64px;
-        font-size: 18px;
-        line-height: 1.5;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        white-space: pre-line;
-        color: #4a2814;
-        box-shadow: inset 0 0 16px rgba(196, 138, 69, 0.14);
-      }
+    <div class="flowers">🌷 🌼 🌻 🌸 🌿 🌺 🌾</div>
+  </main>
 
-      .haiku-box {
-        min-height: 170px;
-        font-size: 20px;
-        line-height: 1.7;
-      }
+  <script>
+    const nicknames = [
+      "Jules",
+      "Juliet Rose",
+      "Squishy",
+      "Princess",
+      "Squishy Princess",
+      "Princess Juliet",
+      "Princess Jules",
+      "Wildflower Princess",
+      "Little Princess",
+      "Squishy Jules",
+      "Princess Peach Blossom",
+      "Squishy Bloom",
+      "Princess Wildflower",
+      "Sweet Princess",
+      "Princess Sunshine",
+      "Wildflower Wonder",
+      "Sunshine Girl",
+      "Honey Bloom",
+      "Little Meadow",
+      "Daisy Heart",
+      "Golden Girl",
+      "Sweet Juliet",
+      "Bloom Baby",
+      "Tiny Miracle",
+      "Moonlit Juliet",
+      "Starlight",
+      "Flower Crown Queen",
+      "Lovely Jules",
+      "Buttercup",
+      "Grace in Bloom",
+      "The Meadow Muse",
+      "My Little Poem",
+      "Rosebud",
+      "Honeybee",
+      "Sunbeam",
+      "Prairie Princess",
+      "Little Firefly",
+      "Garden Girl",
+      "Wild Rose",
+      "Angel Bloom",
+      "Soft Thunder",
+      "Morning Glory",
+      "Bluebell",
+      "Sweet Pea",
+      "Velvet Daisy",
+      "Jewel of the Meadow",
+      "Heaven’s Little Flower",
+      "The Laughing Lily",
+      "Golden Bloom",
+      "Petal Princess",
+      "Little Sparrow",
+      "Blooming Beauty",
+      "Lavender Love",
+      "Honey Rose",
+      "Joy Blossom",
+      "Moonflower",
+      "Tiny Tulip",
+      "Sunlit Soul",
+      "Grace Girl",
+      "Julesy",
+      "The Wildflower Queen",
+      "Meadow Heart",
+      "Springtime Soul",
+      "Little Star",
+      "Peach Blossom",
+      "Dandelion Darling",
+      "The Radiant One",
+      "Garden Grace",
+      "Petal Heart",
+      "The Sunshine Muse",
+      "Lovely Wildflower",
+      "God’s Little Bloom"
+    ];
 
-      button {
-        width: 100%;
-        background: linear-gradient(145deg, #d99abf, #a45a2a);
-        color: white;
-        border: 2px solid #7b4a2f;
-        padding: 14px 18px;
-        border-radius: 999px;
-        cursor: pointer;
-        font-weight: bold;
-        font-size: 15px;
-        box-shadow: 0 5px 0 #7b4a2f;
-        margin-top: 12px;
-      }
+    const amazingThings = [
+      "Juliet is loyal in a way that feels rare, like someone who knows how to stay when it matters.",
+      "Juliet is intelligent, not just because she knows things, but because she sees beneath the surface.",
+      "Juliet is funny in the kind of way that makes ordinary moments feel alive.",
+      "Juliet is talented, and the beautiful part is that her gifts feel natural, like flowers knowing how to bloom.",
+      "Juliet carries wisdom with softness, which is one of the most beautiful combinations a person can have.",
+      "Juliet is adventurous, the kind of person who makes life feel bigger just by being in it.",
+      "Juliet is family-oriented, and that says so much about the depth of her heart.",
+      "Juliet is an amazing friend because she brings warmth, loyalty, and laughter into the room.",
+      "Juliet has princess energy, but not in a distant way. More like grace, beauty, and a little bit of magic.",
+      "Juliet is smokin’ hot, obviously, but somehow her heart still manages to be the prettiest thing about her.",
+      "Juliet has the kind of laugh that can shift the whole atmosphere.",
+      "Juliet makes people feel seen without even trying too hard.",
+      "Juliet has a presence that feels both gentle and unforgettable.",
+      "Juliet carries beauty in a way that feels effortless.",
+      "Juliet has a heart that notices the little things.",
+      "Juliet brings joy into rooms that did not even know they needed it.",
+      "Juliet is strong without losing her softness.",
+      "Juliet is thoughtful in ways that make people feel genuinely cared for.",
+      "Juliet has a creative spark that makes life feel more colorful.",
+      "Juliet is the kind of person people remember.",
+      "Juliet’s loyalty feels like shelter.",
+      "Juliet has a way of making ordinary days feel special.",
+      "Juliet’s kindness does not feel performative. It feels real.",
+      "Juliet is brave in quiet ways.",
+      "Juliet has a soul that feels like spring after a long winter.",
+      "Juliet carries light without demanding attention.",
+      "Juliet is hilarious in a way that sneaks up on you and stays with you.",
+      "Juliet has main character energy with best friend warmth.",
+      "Juliet’s heart is one of her greatest gifts.",
+      "Juliet is beautifully original.",
+      "Juliet is wise beyond the obvious.",
+      "Juliet knows how to love people well.",
+      "Juliet has a sweetness that does not make her weak, it makes her powerful.",
+      "Juliet is the kind of beautiful that goes deeper the more you know her.",
+      "Juliet carries herself with grace, even when life is messy.",
+      "Juliet has a spark that feels heaven-made.",
+      "Juliet makes people laugh, breathe, and feel at home.",
+      "Juliet is a reminder that softness can still be strong.",
+      "Juliet has an adventurous heart and a loyal soul.",
+      "Juliet is someone worth writing poems about.",
+      "Juliet’s friendship feels like a gift you do not take lightly.",
+      "Juliet is warm, funny, brilliant, and completely her own person.",
+      "Juliet has the kind of beauty that feels both playful and holy.",
+      "Juliet carries joy like wildflowers carry color.",
+      "Juliet is the type of person who makes life feel less ordinary.",
+      "Juliet’s wisdom shows up in how deeply she understands people.",
+      "Juliet is precious, not because she tries to be, but because she simply is.",
+      "Juliet has a heart that feels handcrafted by God.",
+      "Juliet is a walking reminder that beauty and depth can live in the same person.",
+      "Juliet makes the people around her better just by being herself.",
+      "Juliet has a spirit that feels free, bright, and deeply loved.",
+      "Juliet is the kind of friend who becomes family.",
+      "Juliet has a rare mix of humor, heart, and holiness.",
+      "Juliet brings color to places that felt plain before her.",
+      "Juliet is stunning, inside and out.",
+      "Juliet’s presence feels like sunshine through wildflowers.",
+      "Juliet has a heart full of depth and a personality full of sparkle.",
+      "Juliet is the kind of person who makes you believe God still writes poetry.",
+      "Juliet is lovely in a way that cannot be reduced to just appearance.",
+      "Juliet is radiant, loyal, funny, wise, and wildly loved."
+    ];
 
-      button:active {
-        transform: translateY(3px);
-        box-shadow: 0 2px 0 #7b4a2f;
-      }
+    const haikuLinesOne = [
+      "Wildflowers lean close",
+      "Morning light finds her",
+      "Soft petals awake",
+      "The meadow whispers",
+      "Golden sunlight bends",
+      "Rain kisses the field",
+      "A little flower blooms",
+      "The warm wind carries",
+      "Heaven hums gently",
+      "A quiet rose grows"
+    ];
 
-      .button-row {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: 10px;
-      }
+    const haikuLinesTwo = [
+      "Juliet laughs with the sun",
+      "Grace moves softly through her",
+      "Her heart teaches spring to sing",
+      "Joy blooms bright within her",
+      "She walks where kindness takes root",
+      "Her soul carries soft wonder",
+      "God’s light rests upon her face",
+      "Beauty follows where she goes",
+      "Her laughter waters the earth",
+      "Peace gathers around her name"
+    ];
 
-      .home-bar {
-        width: 120px;
-        height: 5px;
-        background: #3a2418;
-        border-radius: 999px;
-        position: absolute;
-        bottom: 12px;
-        left: 50%;
-        transform: translateX(-50%);
-      }
+    const haikuLinesThree = [
+      "Love blooms where she walks",
+      "Spring remembers her",
+      "Heaven smiles softly",
+      "Light stays in her hands",
+      "The flowers all know",
+      "Joy follows her steps",
+      "Grace grows wild in her",
+      "Hope rises again",
+      "Her heart feels like home",
+      "God calls her beloved"
+    ];
 
-      @media (max-width: 430px) {
-        body {
-          padding: 12px;
-          align-items: flex-start;
-        }
+    const scriptures = [
+      "Proverbs 31:25\nShe is clothed with strength and dignity; she can laugh at the days to come.",
+      "Song of Solomon 4:7\nYou are altogether beautiful, my darling; there is no flaw in you.",
+      "Psalm 139:14\nI praise you because I am fearfully and wonderfully made; your works are wonderful, I know that full well.",
+      "Numbers 6:24-26\nThe Lord bless you and keep you; the Lord make His face shine on you and be gracious to you; the Lord turn His face toward you and give you peace.",
+      "Zephaniah 3:17\nThe Lord your God is with you, the Mighty Warrior who saves. He will take great delight in you.",
+      "Proverbs 3:15\nShe is more precious than rubies; nothing you desire can compare with her.",
+      "Psalm 46:5\nGod is within her, she will not fall; God will help her at break of day.",
+      "1 Peter 3:4\nThe unfading beauty of a gentle and quiet spirit is of great worth in God’s sight.",
+      "Jeremiah 29:11\nFor I know the plans I have for you, declares the Lord.",
+      "Isaiah 43:4\nYou are precious and honored in My sight, and I love you.",
+      "Psalm 37:4\nTake delight in the Lord, and He will give you the desires of your heart.",
+      "Romans 8:28\nIn all things God works for the good of those who love Him.",
+      "Philippians 4:7\nThe peace of God will guard your hearts and your minds in Christ Jesus.",
+      "Matthew 5:14\nYou are the light of the world.",
+      "Ephesians 2:10\nFor we are God’s handiwork, created in Christ Jesus to do good works.",
+      "Psalm 23:1\nThe Lord is my shepherd, I lack nothing.",
+      "Isaiah 40:31\nThose who hope in the Lord will renew their strength.",
+      "Joshua 1:9\nBe strong and courageous. Do not be afraid.",
+      "Psalm 91:4\nHe will cover you with His feathers, and under His wings you will find refuge.",
+      "Romans 15:13\nMay the God of hope fill you with all joy and peace.",
+      "2 Timothy 1:7\nGod has not given us a spirit of fear, but of power, love, and a sound mind.",
+      "Psalm 34:5\nThose who look to Him are radiant; their faces are never covered with shame.",
+      "Isaiah 41:10\nDo not fear, for I am with you.",
+      "John 15:9\nAs the Father has loved Me, so have I loved you.",
+      "Psalm 121:5\nThe Lord watches over you.",
+      "Psalm 27:1\nThe Lord is my light and my salvation.",
+      "Lamentations 3:22-23\nHis mercies never come to an end; they are new every morning.",
+      "James 1:17\nEvery good and perfect gift is from above.",
+      "Colossians 3:12\nClothe yourselves with compassion, kindness, humility, gentleness, and patience.",
+      "1 Corinthians 13:4\nLove is patient, love is kind.",
+      "Psalm 16:11\nYou make known to me the path of life.",
+      "Deuteronomy 31:8\nThe Lord Himself goes before you and will be with you.",
+      "Psalm 20:4\nMay He give you the desire of your heart.",
+      "Proverbs 4:23\nAbove all else, guard your heart.",
+      "Micah 6:8\nAct justly, love mercy, and walk humbly with your God.",
+      "Matthew 6:26\nLook at the birds of the air; your heavenly Father feeds them.",
+      "Psalm 119:105\nYour word is a lamp for my feet, a light on my path.",
+      "Galatians 5:22-23\nThe fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, and self-control.",
+      "Hebrews 11:1\nFaith is confidence in what we hope for and assurance about what we do not see.",
+      "Psalm 55:22\nCast your cares on the Lord and He will sustain you.",
+      "Matthew 11:28\nCome to Me, all you who are weary and burdened, and I will give you rest.",
+      "Isaiah 26:3\nYou will keep in perfect peace those whose minds are steadfast.",
+      "Romans 12:2\nBe transformed by the renewing of your mind.",
+      "Psalm 103:2\nPraise the Lord, my soul, and forget not all His benefits.",
+      "John 14:27\nPeace I leave with you; My peace I give you.",
+      "1 John 4:19\nWe love because He first loved us.",
+      "Psalm 118:24\nThis is the day that the Lord has made; let us rejoice and be glad in it.",
+      "Proverbs 16:24\nGracious words are a honeycomb, sweet to the soul.",
+      "Isaiah 58:11\nThe Lord will guide you always.",
+      "Psalm 18:2\nThe Lord is my rock, my fortress and my deliverer.",
+      "2 Corinthians 12:9\nMy grace is sufficient for you, for My power is made perfect in weakness.",
+      "Romans 5:5\nGod’s love has been poured out into our hearts through the Holy Spirit.",
+      "Psalm 63:3\nBecause Your love is better than life, my lips will glorify You.",
+      "Proverbs 31:26\nShe speaks with wisdom, and faithful instruction is on her tongue.",
+      "Isaiah 61:3\nA crown of beauty instead of ashes, the oil of joy instead of mourning.",
+      "Psalm 145:9\nThe Lord is good to all; He has compassion on all He has made.",
+      "John 10:10\nI have come that they may have life, and have it to the full.",
+      "Psalm 90:17\nMay the favor of the Lord our God rest on us.",
+      "Ephesians 3:17-18\nMay you be rooted and established in love.",
+      "Jude 1:2\nMercy, peace and love be yours in abundance."
+    ];
 
-        .phone {
-          border-width: 8px;
-          border-radius: 40px;
-          min-height: 720px;
-        }
+    function randomFrom(array) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
 
-        .screen {
-          padding: 20px;
-        }
+    function generateNickname() {
+      document.getElementById("output").textContent = randomFrom(nicknames);
+    }
 
-        h1 {
-          font-size: 27px;
-        }
+    function generateAmazingThing() {
+      document.getElementById("output").textContent = randomFrom(amazingThings);
+    }
 
-        .haiku-box {
-          min-height: 155px;
-          font-size: 19px;
-        }
-      }
-    </style>
-  </head>
+    function generateHaiku() {
+      const haiku =
+        randomFrom(haikuLinesOne) + "\n" +
+        randomFrom(haikuLinesTwo) + "\n" +
+        randomFrom(haikuLinesThree);
 
-  <body>
-    <div class="phone">
-      <div class="notch"></div>
+      document.getElementById("output").textContent = haiku;
+    }
 
-      <div class="screen">
-        <div class="emoji">🌸🤠🌾</div>
-        <h1>Juliet Chevelle</h1>
-        <p class="subtitle">a soft poem for a one of a kind girl</p>
-
-        <div class="section">
-          <div class="label">Nickname</div>
-          <div id="nicknameBox" class="box">tap to generate a nickname</div>
-          <button onclick="generateNickname()">Generate Nickname</button>
-        </div>
-
-        <div class="section">
-          <div class="label">Amazing Thing</div>
-          <div id="amazingBox" class="box">tap to generate something amazing</div>
-          <button onclick="generateAmazingThing()">Generate Amazing Thing</button>
-        </div>
-
-        <div class="section">
-          <div class="label">Haiku</div>
-          <div id="haikuBox" class="box haiku-box">tap to generate a haiku</div>
-          <button onclick="generateHaiku()">Generate Haiku</button>
-        </div>
-      </div>
-
-      <div class="home-bar"></div>
-    </div>
-
-    <script>
-      let currentNickname = "";
-      let currentAmazingThing = "";
-
-      function pick(list) {
-        return list[Math.floor(Math.random() * list.length)];
-      }
-
-      function generateNickname() {
-        const softWords = [
-          "Golden", "Velvet", "Wild", "Honey", "Rose", "Moonlit", "Prairie",
-          "Daisy", "Bluebonnet", "Sugar", "Starlit", "Sunset", "Pearl",
-          "Dreamy", "Sweet", "Brave", "Radiant", "Gentle", "Darling"
-        ];
-
-        const ranchWords = [
-          "Cowgirl", "Wildflower", "Boots", "Belle", "Angel", "Princess",
-          "Rider", "Rose", "Darlin", "Meadow", "Dove", "Heart", "Muse",
-          "Trail Queen", "Prairie Pearl", "Sunshine", "Squishy", "Princess"
-        ];
-
-        currentNickname = pick(softWords) + " " + pick(ranchWords);
-        document.getElementById("nicknameBox").innerText = currentNickname;
-      }
-
-      function generateAmazingThing() {
-        const openings = [
-          "loyal in ways that feel rare",
-          "intelligent with a beautifully curious mind",
-          "funny in a way that makes moments unforgettable",
-          "talented without needing attention",
-          "wise beyond the obvious answer",
-          "smokin' hot with effortless confidence",
-          "adventurous with an open heart",
-          "family oriented in the sweetest way",
-          "an amazing friend who truly shows up",
-          "a princess with strength beneath softness"
-        ];
-
-        const endings = [
-          "and she makes people feel known",
-          "while carrying beauty with humility",
-          "and she brings light into every room",
-          "with a spirit that refuses to be ordinary",
-          "and her presence feels like peace",
-          "while still being completely hilarious",
-          "and she turns simple moments into memories",
-          "with a heart that gives freely",
-          "and she holds both softness and strength",
-          "while making life feel more alive"
-        ];
-
-        currentAmazingThing = pick(openings) + ", " + pick(endings);
-        document.getElementById("amazingBox").innerText = currentAmazingThing;
-      }
-
-      function generateHaiku() {
-        if (!currentNickname) generateNickname();
-        if (!currentAmazingThing) generateAmazingThing();
-
-        const lineTwo = [
-          "wisdom blooms in dust",
-          "truth walks through open fields",
-          "grace thinks before it speaks",
-          "stars study her silence",
-          "beauty asks deeper things",
-          "wonder bends toward her",
-          "soft strength names the dawn",
-          "light gathers in her"
-        ];
-
-        const lineThree = [
-          "she is " + currentAmazingThing,
-          "love made visible",
-          "depth wrapped in laughter",
-          "a soul built to bloom",
-          "truth wearing softness",
-          "joy with deep roots",
-          "wonder made human"
-        ];
-
-        const haiku =
-          currentNickname + "\n" +
-          pick(lineTwo) + "\n" +
-          pick(lineThree);
-
-        document.getElementById("haikuBox").innerText = haiku;
-      }
-    </script>
-  </body>
+    function generateScripture() {
+      document.getElementById("output").textContent = randomFrom(scriptures);
+    }
+  </script>
+</body>
 </html>

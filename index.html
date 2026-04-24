@@ -90,12 +90,11 @@
   <body>
     <div class="container">
 
-      <!-- LEFT -->
       <div class="side-buttons">
         <button onclick="generateNickname()">🤍 Cutesy Nickname</button>
+        <button onclick="generateAmazingThing()">🌸 Amazing Thing</button>
       </div>
 
-      <!-- CENTER -->
       <div class="card">
         <h1>Juliet Chevelle</h1>
         <p>soft ranch poetry for a one of a kind girl</p>
@@ -105,11 +104,10 @@ Click a button to begin 🤍
         </div>
       </div>
 
-      <!-- RIGHT -->
-     <div class="side-buttons">
-  <button onclick="generateHaiku()">🐎 Create Haiku</button>
-  <button onclick="generateCutesyThing()">🎀 Cutesy Thing</button>
-</div>
+      <div class="side-buttons">
+        <button onclick="generateHaiku()">🐎 Create Haiku</button>
+        <button onclick="generateCutesyThing()">🎀 Cutesy Thing</button>
+      </div>
 
     </div>
 
@@ -128,7 +126,10 @@ Click a button to begin 🤍
           "Sugar Saddle",
           "Bluebonnet Babe",
           "Tiny Trail Angel",
-          "Juliet Rose of the Ranch"
+          "Juliet Rose of the Ranch",
+          "Squishy",
+          "Wildflower",
+          "Princess"
         ];
 
         const randomIndex = Math.floor(Math.random() * nicknames.length);
@@ -150,7 +151,6 @@ Click a button to begin 🤍
           "she has a spirit as bright as a western sunset",
           "she is the kind of person people feel lucky to know",
           "she carries beauty, strength, and sweetness all at once",
-
           "she is an amazing cook who brings people together",
           "she is an intentional friend who truly shows up",
           "she is absolutely smokin hot and effortlessly radiant",
@@ -180,22 +180,26 @@ Click a button to begin 🤍
 
         document.getElementById("haikuBox").innerText = haiku;
       }
+
       function generateCutesyThing() {
-  if (currentNickname === "") generateNickname();
-  if (currentAmazingThing === "") generateAmazingThing();
+        if (currentNickname === "") generateNickname();
+        if (currentAmazingThing === "") generateAmazingThing();
 
-  const phrases = [
-    currentNickname + " is " + currentAmazingThing,
-    currentNickname + " just casually being " + currentAmazingThing,
-    currentNickname + " somehow always is " + currentAmazingThing,
-    "No one does it like " + currentNickname + ", especially when " + currentAmazingThing,
-    currentNickname + "… and yes, " + currentAmazingThing
-  ];
+        const phrases = [
+          currentNickname + " is " + currentAmazingThing + ".",
+          currentNickname + " is just casually " + currentAmazingThing + ".",
+          currentNickname + " somehow always reminds people that " + currentAmazingThing + ".",
+          "No one does it like " + currentNickname + ", especially because " + currentAmazingThing + ".",
+          currentNickname + " is ranch royalty, and honestly, " + currentAmazingThing + ".",
+          currentNickname + " has that soft cowgirl magic because " + currentAmazingThing + "."
+        ];
 
-  const randomIndex = Math.floor(Math.random() * phrases.length);
+        const randomIndex = Math.floor(Math.random() * phrases.length);
 
-  document.getElementById("haikuBox").innerText = phrases[randomIndex];
-}
+        document.getElementById("haikuBox").innerText = phrases[randomIndex];
+      }
     </script>
   </body>
 </html>
+   
+      

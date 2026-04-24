@@ -19,8 +19,6 @@
         align-items: center;
         justify-content: center;
         gap: 40px;
-        width: 90%;
-        max-width: 1100px;
       }
 
       .side {
@@ -32,8 +30,8 @@
 
       .card {
         background: #fffaf5;
-        padding: 40px;
-        border-radius: 30px;
+        padding: 35px;
+        border-radius: 25px;
         text-align: center;
         border: 4px solid #8b5a2b;
         box-shadow: 0 20px 50px rgba(60, 30, 10, 0.35);
@@ -45,50 +43,38 @@
         margin-bottom: 10px;
       }
 
-      p {
-        color: #a47148;
-        font-size: 16px;
-      }
-
       .box {
-        padding: 15px;
-        border-radius: 15px;
+        padding: 12px;
+        border-radius: 12px;
         background: #fff0f5;
         border: 2px dashed #c48a45;
-        font-size: 16px;
-        color: #4a2814;
-        min-height: 60px;
+        font-size: 14px;
+        min-height: 50px;
       }
 
       #mainBox {
         margin-top: 20px;
-        padding: 25px;
-        border-radius: 20px;
+        padding: 20px;
+        border-radius: 18px;
         background: #fff0f5;
         border: 2px dashed #c48a45;
-        font-size: 22px;
-        min-height: 140px;
+        font-size: 20px;
+        min-height: 120px;
         white-space: pre-line;
       }
 
       button {
         background: linear-gradient(145deg, #d291bc, #a0522d);
-        color: #fffaf5;
+        color: white;
         border: 2px solid #7b4a2f;
         padding: 12px;
         border-radius: 20px;
-        font-size: 14px;
         cursor: pointer;
         font-weight: bold;
-        box-shadow: 0 5px 0 #7b4a2f;
       }
 
       button:hover {
         transform: translateY(-2px);
-      }
-
-      button:active {
-        transform: translateY(2px);
       }
     </style>
   </head>
@@ -98,27 +84,25 @@
 
       <!-- LEFT SIDE -->
       <div class="side">
-        <button onclick="generateNickname()">🤍 Cutesy Nickname</button>
-        <div id="nicknameBox" class="box">Nickname appears here</div>
+        <button onclick="generateNickname()">🤍 Nickname</button>
+        <div id="nicknameBox" class="box">nickname appears here</div>
 
-        <button onclick="generateAmazingThing()">🌸 Amazing Thing</button>
-        <div id="amazingBox" class="box">Amazing thing appears here</div>
+        <button onclick="generateAmazingThing()">🌸 Amazing</button>
+        <div id="amazingBox" class="box">amazing thing appears here</div>
       </div>
 
       <!-- CENTER -->
       <div class="card">
         <h1>Juliet Chevelle</h1>
-        <p>soft ranch poetry for a one of a kind girl</p>
 
         <div id="mainBox">
-Click something to begin 🤍
+Click a button 🤍
         </div>
       </div>
 
       <!-- RIGHT SIDE -->
       <div class="side">
         <button onclick="generateHaiku()">🐎 Haiku</button>
-        <button onclick="generateCutesyThing()">🎀 Cutesy Thing</button>
         <button onclick="generateFunnyPoem()">🤠 Funny Poem</button>
       </div>
 
@@ -129,44 +113,31 @@ Click something to begin 🤍
       let currentAmazingThing = "";
 
       function generateNickname() {
-        const nicknames = [
-          "Sweet Prairie Pearl",
-          "Little Wildflower",
-          "Honey Boots",
-          "Cowgirl Sunshine",
-          "Miss Golden Spurs",
-          "Daisy Belle",
-          "Sugar Saddle",
-          "Bluebonnet Babe",
-          "Tiny Trail Angel",
-          "Juliet Rose of the Ranch",
+        const list = [
           "Squishy",
           "Wildflower",
-          "Princess"
+          "Princess",
+          "Honey Boots",
+          "Daisy Belle",
+          "Cowgirl Sunshine"
         ];
-
-        const i = Math.floor(Math.random() * nicknames.length);
-        currentNickname = nicknames[i];
-
+        currentNickname = list[Math.floor(Math.random() * list.length)];
         document.getElementById("nicknameBox").innerText = currentNickname;
       }
 
       function generateAmazingThing() {
-        const amazingThings = [
-          "she is an amazing cook",
-          "she is an intentional friend",
-          "she is smokin hot",
-          "she is a deep thinker",
-          "she is a deep lover",
-          "she is compassionate",
-          "she is a great dance partner",
-          "she is a great companion",
-          "she is hilarious"
+        const list = [
+          "amazing cook",
+          "intentional friend",
+          "smokin hot",
+          "deep thinker",
+          "deep lover",
+          "compassionate",
+          "great dance partner",
+          "great companion",
+          "hilarious"
         ];
-
-        const i = Math.floor(Math.random() * amazingThings.length);
-        currentAmazingThing = amazingThings[i];
-
+        currentAmazingThing = list[Math.floor(Math.random() * list.length)];
         document.getElementById("amazingBox").innerText = currentAmazingThing;
       }
 
@@ -174,33 +145,25 @@ Click something to begin 🤍
         if (!currentNickname) generateNickname();
         if (!currentAmazingThing) generateAmazingThing();
 
-        const haiku =
+        const text =
           currentNickname + "\n" +
-          "soft light on open plains\n" +
-          currentAmazingThing;
+          "soft light on the plains\n" +
+          "she is a " + currentAmazingThing;
 
-        document.getElementById("mainBox").innerText = haiku;
-      }
-
-      function generateCutesyThing() {
-        if (!currentNickname) generateNickname();
-        if (!currentAmazingThing) generateAmazingThing();
-
-        document.getElementById("mainBox").innerText =
-          currentNickname + " is " + currentAmazingThing + " 🤍";
+        document.getElementById("mainBox").innerText = text;
       }
 
       function generateFunnyPoem() {
         if (!currentNickname) generateNickname();
         if (!currentAmazingThing) generateAmazingThing();
 
-        const poem =
+        const text =
           currentNickname + "\n" +
           "lost a boot but kept her crown\n" +
-          currentAmazingThing + "\n" +
+          "she is a " + currentAmazingThing + "\n" +
           "and somehow runs the whole town";
 
-        document.getElementById("mainBox").innerText = poem;
+        document.getElementById("mainBox").innerText = text;
       }
     </script>
   </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Princess Juliet </title>
+    <title>Juliet Chevelle Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -13,7 +13,15 @@
         margin: 0;
         min-height: 100vh;
         font-family: Georgia, serif;
-        background: linear-gradient(135deg, #f7d6e0, #f6e7c8, #c98b52);
+
+        background:
+          linear-gradient(rgba(255, 245, 235, 0.6), rgba(255, 245, 235, 0.6)),
+          url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
         display: flex;
         justify-content: center;
         align-items: center;
@@ -31,7 +39,7 @@
       }
 
       .panel {
-        background: rgba(255, 250, 245, 0.95);
+        background: rgba(255, 250, 245, 0.92);
         border: 3px solid #9b6337;
         border-radius: 28px;
         padding: 24px;
@@ -123,6 +131,7 @@
   <body>
     <div class="container">
 
+      <!-- LEFT -->
       <div class="panel">
         <div class="emoji">🤍🌸</div>
         <h2>Nickname</h2>
@@ -130,6 +139,7 @@
         <div id="nicknameBox" class="box">nickname appears here</div>
       </div>
 
+      <!-- CENTER -->
       <div class="panel middle">
         <div class="emoji">🌾🐎🌸</div>
         <h1>Juliet Chevelle</h1>
@@ -138,6 +148,7 @@
         <div id="haikuBox" class="box">haiku appears here</div>
       </div>
 
+      <!-- RIGHT -->
       <div class="panel">
         <div class="emoji">✨🤠</div>
         <h2>Amazing Things</h2>
@@ -165,7 +176,7 @@
         const ranchWords = [
           "Cowgirl", "Wildflower", "Boots", "Belle", "Angel", "Princess",
           "Rider", "Rose", "Darlin", "Meadow", "Dove", "Heart", "Muse",
-          "Saddle Star", "Trail Queen", "Prairie Pearl", "Sunshine"
+          "Trail Queen", "Prairie Pearl", "Sunshine"
         ];
 
         currentNickname = pick(softWords) + " " + pick(ranchWords);
@@ -176,19 +187,14 @@
         const openings = [
           "loyal in ways that feel rare",
           "intelligent with a beautifully curious mind",
-          "funny in a way that makes ordinary moments memorable",
-          "talented without needing to announce it",
+          "funny in a way that makes moments unforgettable",
+          "talented without needing attention",
           "wise beyond the obvious answer",
           "smokin' hot with effortless confidence",
-          "adventurous with a heart open to wonder",
+          "adventurous with an open heart",
           "family oriented in the sweetest way",
           "an amazing friend who truly shows up",
-          "a princess with strength beneath the softness",
-          "compassionate in a way that feels safe",
-          "thoughtful with the little details",
-          "full of grace and quiet power",
-          "deeply loving with her whole heart",
-          "the kind of person who makes life feel warmer"
+          "a princess with strength beneath softness"
         ];
 
         const endings = [
@@ -199,8 +205,8 @@
           "and her presence feels like peace",
           "while still being completely hilarious",
           "and she turns simple moments into memories",
-          "with a heart that gives without keeping score",
-          "and she carries softness without losing strength",
+          "with a heart that gives freely",
+          "and she holds both softness and strength",
           "while making life feel more alive"
         ];
 
@@ -209,8 +215,8 @@
       }
 
       function generateHaiku() {
-        if (currentNickname === "") generateNickname();
-        if (currentAmazingThing === "") generateAmazingThing();
+        if (!currentNickname) generateNickname();
+        if (!currentAmazingThing) generateAmazingThing();
 
         const lineTwo = [
           "wisdom blooms in dust",
@@ -220,21 +226,16 @@
           "beauty asks deeper things",
           "wonder bends toward her",
           "soft strength names the dawn",
-          "the sky learns patience",
-          "light gathers in her",
-          "peace becomes her language"
+          "light gathers in her"
         ];
 
         const lineThree = [
           "she is " + currentAmazingThing,
           "love made visible",
-          "a mind full of light",
           "depth wrapped in laughter",
           "a soul built to bloom",
-          "beauty with meaning",
-          "a heart wide awake",
           "truth wearing softness",
-          "joy with holy roots",
+          "joy with deep roots",
           "wonder made human"
         ];
 

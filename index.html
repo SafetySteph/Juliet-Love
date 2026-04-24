@@ -154,17 +154,45 @@ Click a button 🤍
       }
 
       function generateFunnyPoem() {
-        if (!currentNickname) generateNickname();
-        if (!currentAmazingThing) generateAmazingThing();
+  if (!currentNickname) generateNickname();
+  if (!currentAmazingThing) generateAmazingThing();
 
-        const text =
-          currentNickname + "\n" +
-          "lost a boot but kept her crown\n" +
-          "she is a " + currentAmazingThing + "\n" +
-          "and somehow runs the whole town";
+  const poems = [
+    currentNickname + "\nforgot her boots again\nshe is a " + currentAmazingThing + "\nstill runs the whole town",
 
-        document.getElementById("mainBox").innerText = text;
-      }
+    currentNickname + "\nspilled coffee on her jeans\nshe is a " + currentAmazingThing + "\nand somehow looks iconic",
+
+    currentNickname + "\nsaid just one more dance\nshe is a " + currentAmazingThing + "\nnow the barn is cheering",
+
+    currentNickname + "\nlaughed way too loud\nshe is a " + currentAmazingThing + "\nand no one complained",
+
+    currentNickname + "\nshowed up late again\nshe is a " + currentAmazingThing + "\nand still stole the moment",
+
+    currentNickname + "\ntripped but made it cute\nshe is a " + currentAmazingThing + "\nand turned it into style",
+
+    currentNickname + "\nforgot what she was saying\nshe is a " + currentAmazingThing + "\nbut kept everyone smiling",
+
+    currentNickname + "\ndanced like no one cared\nshe is a " + currentAmazingThing + "\nand everyone noticed",
+
+    currentNickname + "\nwore boots and sparkle\nshe is a " + currentAmazingThing + "\nand owns the whole vibe",
+
+    currentNickname + "\nran straight into chaos\nshe is a " + currentAmazingThing + "\nand somehow thrived",
+
+    currentNickname + "\ndropped her phone again\nshe is a " + currentAmazingThing + "\nand still stays glowing",
+
+    currentNickname + "\nstarted laughing first\nshe is a " + currentAmazingThing + "\nand no one recovered",
+
+    currentNickname + "\nbrought snacks and drama\nshe is a " + currentAmazingThing + "\nand it worked out perfectly",
+
+    currentNickname + "\nmissed the first step\nshe is a " + currentAmazingThing + "\nand led the dance anyway",
+
+    currentNickname + "\nlooked way too good\nshe is a " + currentAmazingThing + "\nand caused a small scene"
+  ];
+
+  const randomIndex = Math.floor(Math.random() * poems.length);
+
+  document.getElementById("mainBox").innerText = poems[randomIndex];
+}
     </script>
   </body>
 </html>

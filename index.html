@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Juliet Chevelle Generator</title>
+
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Georgia, serif;
+        background: linear-gradient(135deg, #c48a45, #f3d7a4, #7b4a2f);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .card {
+        background: #fff8ea;
+        width: 460px;
+        padding: 35px;
+        border-radius: 24px;
+        text-align: center;
+        border: 4px solid #7b4a2f;
+        box-shadow: 0 18px 40px rgba(60, 30, 10, 0.35);
+      }
+
+      h1 {
+        color: #6b3418;
+        font-size: 34px;
+        margin-bottom: 5px;
+      }
+
+      .subtitle {
+        color: #8b5a2b;
+        font-size: 17px;
+        margin-bottom: 25px;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        margin: 12px 0;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 999px;
+        background-color: #8b4513;
+        color: #fff8ea;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background-color: #5c2e10;
+        transform: scale(1.03);
+      }
+
+      .result-box {
+        margin-top: 20px;
+        padding: 20px;
+        background: #f7e4bd;
+        border: 2px dashed #8b4513;
+        border-radius: 18px;
+        color: #4a2814;
+        font-size: 20px;
+        min-height: 80px;
+        white-space: pre-line;
+      }
+
+      .label {
+        font-size: 14px;
+        color: #7b4a2f;
+        margin-top: 18px;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1>Juliet Chevelle</h1>
+      <p class="subtitle">A little ranch style generator for a one of a kind girl</p>
+
+      <button onclick="generateNickname()">Generate Cutesy Nickname</button>
+      <button onclick="generateAmazingThing()">Generate Something Amazing</button>
+      <button onclick="generateHaiku()">Create Ranch Haiku</button>
+
+      <div class="label">Nickname</div>
+      <div id="nicknameBox" class="result-box">Her nickname will appear here</div>
+
+      <div class="label">Amazing Thing</div>
+      <div id="amazingBox" class="result-box">Something amazing about her will appear here</div>
+
+      <div class="label">Haiku</div>
+      <div id="haikuBox" class="result-box">Her haiku will appear here</div>
+    </div>
+
+    <script>
+      let currentNickname = "";
+      let currentAmazingThing = "";
+
+      function generateNickname() {
+        const nicknames = [
+          "Sweet Prairie Pearl",
+          "Little Wildflower",
+          "Honey Boots",
+          "Cowgirl Sunshine",
+          "Miss Golden Spurs",
+          "Daisy Belle",
+          "Sugar Saddle",
+          "Bluebonnet Babe",
+          "Tiny Trail Angel",
+          "Juliet Rose of the Ranch"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * nicknames.length);
+        currentNickname = nicknames[randomIndex];
+
+        document.getElementById("nicknameBox").innerText = currentNickname;
+      }
+
+      function generateAmazingThing() {
+        const amazingThings = [
+          "she carries kindness like sunshine across an open field",
+          "she has a heart that makes people feel safe and loved",
+          "she brings joy into a room without even trying",
+          "she is strong, gentle, and beautifully one of a kind",
+          "she has a light that feels warm, steady, and true",
+          "she makes ordinary moments feel sweet and memorable",
+          "she is thoughtful, lovely, and full of grace",
+          "she has a spirit as bright as a western sunset",
+          "she is the kind of person people feel lucky to know",
+          "she carries beauty, strength, and sweetness all at once"
+        ];
+
+        const randomIndex = Math.floor(Math.random() * amazingThings.length);
+        currentAmazingThing = amazingThings[randomIndex];
+
+        document.getElementById("amazingBox").innerText = currentAmazingThing;
+      }
+
+      function generateHaiku() {
+        if (currentNickname === "") {
+          generateNickname();
+        }
+
+        if (currentAmazingThing === "") {
+          generateAmazingThing();
+        }
+
+        const haiku =
+          currentNickname + "\n" +
+          "rides through fields of grace\n" +
+          currentAmazingThing;
+
+        document.getElementById("haikuBox").innerText = haiku;
+      }
+    </script>
+  </body>
+</html>

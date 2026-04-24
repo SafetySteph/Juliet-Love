@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Princess Juliet </title>
+    <title>Juliet Chevelle Generator</title>
 
     <style>
       body {
@@ -11,13 +11,14 @@
         justify-content: center;
         align-items: center;
         font-family: Georgia, serif;
-        background: linear-gradient(135deg, #f7d6e0, #f3e5c8, #c48a45);
+        background:
+          url('https://www.transparenttextures.com/patterns/flowers.png'),
+          linear-gradient(135deg, #f7d6e0, #f3e5c8, #c48a45);
       }
 
       .container {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 40px;
       }
 
@@ -25,17 +26,17 @@
         display: flex;
         flex-direction: column;
         gap: 15px;
-        width: 220px;
+        width: 200px;
       }
 
       .card {
-        background: #fffaf5;
+        background: rgba(255, 250, 245, 0.95);
         padding: 35px;
         border-radius: 25px;
         text-align: center;
         border: 4px solid #8b5a2b;
         box-shadow: 0 20px 50px rgba(60, 30, 10, 0.35);
-        width: 420px;
+        width: 400px;
       }
 
       h1 {
@@ -50,6 +51,7 @@
         border: 2px dashed #c48a45;
         font-size: 14px;
         min-height: 50px;
+        color: #4a2814;
       }
 
       #mainBox {
@@ -61,6 +63,7 @@
         font-size: 20px;
         min-height: 120px;
         white-space: pre-line;
+        color: #4a2814;
       }
 
       button {
@@ -82,35 +85,27 @@
   <body>
     <div class="container">
 
-      <!-- LEFT SIDE -->
       <div class="side">
         <button onclick="generateNickname()">🤍 Nickname</button>
         <div id="nicknameBox" class="box">nickname appears here</div>
-
-        <button onclick="generateAmazingThing()">🌸 Amazing</button>
-        <div id="amazingBox" class="box">amazing thing appears here</div>
       </div>
 
-      <!-- CENTER -->
       <div class="card">
         <h1>Juliet Chevelle</h1>
 
         <div id="mainBox">
-Click a button 🤍
+Click to generate something ✨
         </div>
       </div>
 
-      <!-- RIGHT SIDE -->
       <div class="side">
         <button onclick="generateHaiku()">🐎 Haiku</button>
-        <button onclick="generateFunnyPoem()">🤠 Funny Poem</button>
       </div>
 
     </div>
 
     <script>
       let currentNickname = "";
-      let currentAmazingThing = "";
 
       function generateNickname() {
         const list = [
@@ -121,78 +116,28 @@ Click a button 🤍
           "Daisy Belle",
           "Cowgirl Sunshine"
         ];
-        currentNickname = list[Math.floor(Math.random() * list.length)];
-        document.getElementById("nicknameBox").innerText = currentNickname;
-      }
 
-      function generateAmazingThing() {
-        const list = [
-          "amazing cook",
-          "intentional friend",
-          "smokin hot",
-          "deep thinker",
-          "deep lover",
-          "compassionate",
-          "great dance partner",
-          "great companion",
-          "hilarious"
-        ];
-        currentAmazingThing = list[Math.floor(Math.random() * list.length)];
-        document.getElementById("amazingBox").innerText = currentAmazingThing;
+        currentNickname = list[Math.floor(Math.random() * list.length)];
+
+        document.getElementById("nicknameBox").innerText = currentNickname;
       }
 
       function generateHaiku() {
         if (!currentNickname) generateNickname();
-        if (!currentAmazingThing) generateAmazingThing();
 
-        const text =
-          currentNickname + "\n" +
-          "soft light on the plains\n" +
-          "she is a " + currentAmazingThing;
+        const haikus = [
+          currentNickname + "\nsoft light on the plains\nsweet as morning air",
+          currentNickname + "\nquiet like sunset skies\nwarm and steady glow",
+          currentNickname + "\nwild heart in the wind\nsoft strength you can feel",
+          currentNickname + "\ngolden hour glow\nbeauty in simple things",
+          currentNickname + "\nlike fields in the breeze\nsoft laughter carries far",
+          currentNickname + "\nboots in open dust\nkindness follows her steps"
+        ];
 
-        document.getElementById("mainBox").innerText = text;
+        const randomIndex = Math.floor(Math.random() * haikus.length);
+
+        document.getElementById("mainBox").innerText = haikus[randomIndex];
       }
-
-      function generateFunnyPoem() {
-  if (!currentNickname) generateNickname();
-  if (!currentAmazingThing) generateAmazingThing();
-
-  const poems = [
-    currentNickname + "\nforgot her boots again\nshe is a " + currentAmazingThing + "\nstill runs the whole town",
-
-    currentNickname + "\nspilled coffee on her jeans\nshe is a " + currentAmazingThing + "\nand somehow looks iconic",
-
-    currentNickname + "\nsaid just one more dance\nshe is a " + currentAmazingThing + "\nnow the barn is cheering",
-
-    currentNickname + "\nlaughed way too loud\nshe is a " + currentAmazingThing + "\nand no one complained",
-
-    currentNickname + "\nshowed up late again\nshe is a " + currentAmazingThing + "\nand still stole the moment",
-
-    currentNickname + "\ntripped but made it cute\nshe is a " + currentAmazingThing + "\nand turned it into style",
-
-    currentNickname + "\nforgot what she was saying\nshe is a " + currentAmazingThing + "\nbut kept everyone smiling",
-
-    currentNickname + "\ndanced like no one cared\nshe is a " + currentAmazingThing + "\nand everyone noticed",
-
-    currentNickname + "\nwore boots and sparkle\nshe is a " + currentAmazingThing + "\nand owns the whole vibe",
-
-    currentNickname + "\nran straight into chaos\nshe is a " + currentAmazingThing + "\nand somehow thrived",
-
-    currentNickname + "\ndropped her phone again\nshe is a " + currentAmazingThing + "\nand still stays glowing",
-
-    currentNickname + "\nstarted laughing first\nshe is a " + currentAmazingThing + "\nand no one recovered",
-
-    currentNickname + "\nbrought snacks and drama\nshe is a " + currentAmazingThing + "\nand it worked out perfectly",
-
-    currentNickname + "\nmissed the first step\nshe is a " + currentAmazingThing + "\nand led the dance anyway",
-
-    currentNickname + "\nlooked way too good\nshe is a " + currentAmazingThing + "\nand caused a small scene"
-  ];
-
-  const randomIndex = Math.floor(Math.random() * poems.length);
-
-  document.getElementById("mainBox").innerText = poems[randomIndex];
-}
     </script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Juliet Chevelle Generator</title>
@@ -90,8 +90,8 @@
       }
 
       .middle .box {
-        min-height: 190px;
-        font-size: 24px;
+        min-height: 220px;
+        font-size: 22px;
         background: linear-gradient(180deg, #fffaf5, #fff0f5);
       }
 
@@ -114,7 +114,7 @@
         }
 
         .middle .box {
-          font-size: 21px;
+          font-size: 20px;
         }
       }
     </style>
@@ -133,7 +133,7 @@
       <div class="panel middle">
         <div class="emoji">🌾🐎🌸</div>
         <h1>Juliet Chevelle</h1>
-        <p>A soft ranch haiku generator</p>
+        <p>A deep ranch haiku generator</p>
         <button onclick="generateHaiku()">Generate Haiku</button>
         <div id="haikuBox" class="box">haiku appears here</div>
       </div>
@@ -151,66 +151,99 @@
       let currentNickname = "";
       let currentAmazingThing = "";
 
+      function pick(list) {
+        return list[Math.floor(Math.random() * list.length)];
+      }
+
       function generateNickname() {
-        const nicknames = [
-          "Squishy",
-          "Wildflower",
-          "Princess",
-          "Honey Boots",
-          "Daisy Belle",
-          "Cowgirl Sunshine",
-          "Sweet Prairie Pearl",
-          "Bluebonnet Babe",
-          "Juliet Rose",
-          "Little Wildflower",
-          "Sugar Saddle",
-          "Miss Golden Spurs"
+        const softWords = [
+          "Golden", "Velvet", "Wild", "Honey", "Rose", "Moonlit", "Prairie",
+          "Daisy", "Bluebonnet", "Sugar", "Starlit", "Sunset", "Pearl",
+          "Dreamy", "Sweet", "Brave", "Radiant", "Gentle", "Darling"
         ];
 
-        currentNickname = nicknames[Math.floor(Math.random() * nicknames.length)];
+        const ranchWords = [
+          "Cowgirl", "Wildflower", "Boots", "Belle", "Angel", "Princess",
+          "Rider", "Rose", "Darlin", "Meadow", "Dove", "Heart", "Muse",
+          "Saddle Star", "Trail Queen", "Prairie Pearl", "Sunshine"
+        ];
+
+        currentNickname = pick(softWords) + " " + pick(ranchWords);
         document.getElementById("nicknameBox").innerText = currentNickname;
       }
 
       function generateAmazingThing() {
-        const amazingThings = [
-          "loyal",
-          "intelligent",
-          "funny",
-          "talented",
-          "wise",
-          "smokin' hot",
-          "adventurous",
-          "family oriented",
-          "an amazing friend",
-          "a princess"
+        const openings = [
+          "loyal in ways that feel rare",
+          "intelligent with a beautifully curious mind",
+          "funny in a way that makes ordinary moments memorable",
+          "talented without needing to announce it",
+          "wise beyond the obvious answer",
+          "smokin' hot with effortless confidence",
+          "adventurous with a heart open to wonder",
+          "family oriented in the sweetest way",
+          "an amazing friend who truly shows up",
+          "a princess with strength beneath the softness",
+          "compassionate in a way that feels safe",
+          "thoughtful with the little details",
+          "full of grace and quiet power",
+          "deeply loving with her whole heart",
+          "the kind of person who makes life feel warmer"
         ];
 
-        currentAmazingThing = amazingThings[Math.floor(Math.random() * amazingThings.length)];
+        const endings = [
+          "and she makes people feel known",
+          "while carrying beauty with humility",
+          "and she brings light into every room",
+          "with a spirit that refuses to be ordinary",
+          "and her presence feels like peace",
+          "while still being completely hilarious",
+          "and she turns simple moments into memories",
+          "with a heart that gives without keeping score",
+          "and she carries softness without losing strength",
+          "while making life feel more alive"
+        ];
+
+        currentAmazingThing = pick(openings) + ", " + pick(endings);
         document.getElementById("amazingBox").innerText = currentAmazingThing;
       }
 
       function generateHaiku() {
-        if (currentNickname === "") {
-          generateNickname();
-        }
+        if (currentNickname === "") generateNickname();
+        if (currentAmazingThing === "") generateAmazingThing();
 
-        if (currentAmazingThing === "") {
-          generateAmazingThing();
-        }
-
-        const haikus = [
-          currentNickname + "\nsoft light fills the plains\nshe is " + currentAmazingThing,
-          currentNickname + "\nwildflowers bend toward her\nshe is " + currentAmazingThing,
-          currentNickname + "\ngold dust rides the wind\nshe is " + currentAmazingThing,
-          currentNickname + "\nmoonlight on the ranch\nshe is " + currentAmazingThing,
-          currentNickname + "\nboots move through soft grass\nshe is " + currentAmazingThing,
-          currentNickname + "\nsunset wraps the sky\nshe is " + currentAmazingThing,
-          currentNickname + "\nlaughter fills the barn\nshe is " + currentAmazingThing,
-          currentNickname + "\nrose petals drift slow\nshe is " + currentAmazingThing
+        const lineTwo = [
+          "wisdom blooms in dust",
+          "truth walks through open fields",
+          "grace thinks before it speaks",
+          "stars study her silence",
+          "beauty asks deeper things",
+          "wonder bends toward her",
+          "soft strength names the dawn",
+          "the sky learns patience",
+          "light gathers in her",
+          "peace becomes her language"
         ];
 
-        const randomIndex = Math.floor(Math.random() * haikus.length);
-        document.getElementById("haikuBox").innerText = haikus[randomIndex];
+        const lineThree = [
+          "she is " + currentAmazingThing,
+          "love made visible",
+          "a mind full of light",
+          "depth wrapped in laughter",
+          "a soul built to bloom",
+          "beauty with meaning",
+          "a heart wide awake",
+          "truth wearing softness",
+          "joy with holy roots",
+          "wonder made human"
+        ];
+
+        const haiku =
+          currentNickname + "\n" +
+          pick(lineTwo) + "\n" +
+          pick(lineThree);
+
+        document.getElementById("haikuBox").innerText = haiku;
       }
     </script>
   </body>

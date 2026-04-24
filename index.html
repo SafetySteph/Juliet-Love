@@ -106,10 +106,10 @@ Click a button to begin 🤍
       </div>
 
       <!-- RIGHT -->
-      <div class="side-buttons">
-        <button onclick="generateAmazingThing()">🌸 Amazing Thing</button>
-        <button onclick="generateHaiku()">🐎 Create Haiku</button>
-      </div>
+     <div class="side-buttons">
+  <button onclick="generateHaiku()">🐎 Create Haiku</button>
+  <button onclick="generateCutesyThing()">🎀 Cutesy Thing</button>
+</div>
 
     </div>
 
@@ -180,6 +180,22 @@ Click a button to begin 🤍
 
         document.getElementById("haikuBox").innerText = haiku;
       }
+      function generateCutesyThing() {
+  if (currentNickname === "") generateNickname();
+  if (currentAmazingThing === "") generateAmazingThing();
+
+  const phrases = [
+    currentNickname + " is " + currentAmazingThing,
+    currentNickname + " just casually being " + currentAmazingThing,
+    currentNickname + " somehow always is " + currentAmazingThing,
+    "No one does it like " + currentNickname + ", especially when " + currentAmazingThing,
+    currentNickname + "… and yes, " + currentAmazingThing
+  ];
+
+  const randomIndex = Math.floor(Math.random() * phrases.length);
+
+  document.getElementById("haikuBox").innerText = phrases[randomIndex];
+}
     </script>
   </body>
 </html>

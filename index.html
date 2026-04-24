@@ -17,7 +17,7 @@
       font-family: Georgia, "Times New Roman", serif;
       color: #3f2f24;
       background:
-        linear-gradient(rgba(255, 248, 238, 0.78), rgba(255, 248, 238, 0.78)),
+        linear-gradient(rgba(255, 248, 238, 0.76), rgba(255, 248, 238, 0.76)),
         url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1600&q=80");
       background-size: cover;
       background-position: center;
@@ -25,17 +25,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 24px;
+      padding: 20px;
     }
 
     .phone-frame {
       width: 100%;
       max-width: 430px;
-      min-height: 850px;
-      background: rgba(255, 250, 240, 0.9);
+      min-height: 880px;
+      background: rgba(255, 250, 240, 0.92);
       border: 8px solid #3f2f24;
       border-radius: 42px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
       overflow: hidden;
       position: relative;
       backdrop-filter: blur(6px);
@@ -52,129 +52,109 @@
 
     header {
       text-align: center;
-      padding: 24px 22px 12px;
+      padding: 22px 22px 8px;
     }
 
     h1 {
       margin: 0;
-      font-size: 2.4rem;
+      font-size: 2.35rem;
       color: #6f4e37;
       letter-spacing: 1px;
     }
 
     .subtitle {
       margin-top: 8px;
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       line-height: 1.5;
       color: #70594a;
     }
 
     .wildflower-divider {
       text-align: center;
-      font-size: 1.4rem;
-      margin: 8px 0 18px;
+      font-size: 1.35rem;
+      margin: 8px 0 14px;
     }
 
-    .button-grid {
-      display: grid;
-      grid-template-columns: 1fr;
+    .section-stack {
+      display: flex;
+      flex-direction: column;
       gap: 14px;
-      padding: 0 22px;
+      padding: 0 18px 95px;
+    }
+
+    .generator-box {
+      border-radius: 26px;
+      padding: 16px;
+      background: rgba(255, 255, 255, 0.76);
+      border: 2px solid rgba(168, 111, 76, 0.24);
+      box-shadow: 0 8px 20px rgba(63, 47, 36, 0.12);
+      text-align: center;
+    }
+
+    .generator-box h2 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      color: #6f4e37;
     }
 
     button {
       border: none;
       border-radius: 22px;
-      padding: 16px 18px;
+      padding: 12px 16px;
+      width: 100%;
       font-family: inherit;
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: bold;
       color: #fffaf0;
       background: linear-gradient(135deg, #a86f4c, #6f8f72);
-      box-shadow: 0 8px 18px rgba(63, 47, 36, 0.22);
+      box-shadow: 0 7px 16px rgba(63, 47, 36, 0.2);
       cursor: pointer;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(63, 47, 36, 0.3);
+      box-shadow: 0 10px 22px rgba(63, 47, 36, 0.28);
     }
 
     button:active {
       transform: scale(0.98);
     }
 
-    .output-card {
-      margin: 22px;
-      padding: 22px;
-      min-height: 220px;
-      border-radius: 26px;
-      background: rgba(255, 255, 255, 0.75);
-      border: 2px solid rgba(168, 111, 76, 0.25);
-      box-shadow: inset 0 0 18px rgba(255, 255, 255, 0.7);
+    .mini-output {
+      margin-top: 12px;
+      min-height: 70px;
+      border-radius: 20px;
+      padding: 14px;
+      background: rgba(255, 248, 238, 0.9);
+      border: 1px solid rgba(111, 78, 55, 0.18);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      line-height: 1.7;
-      font-size: 1.1rem;
+      line-height: 1.55;
+      font-size: 0.98rem;
       color: #3f2f24;
       white-space: pre-line;
     }
 
-    .playlist {
-      padding: 0 22px 120px;
-      text-align: center;
-    }
-
-    .playlist a {
-      display: inline-block;
-      text-decoration: none;
-      border-radius: 22px;
-      padding: 14px 18px;
-      color: #fffaf0;
-      background: linear-gradient(135deg, #3f2f24, #7a5c46);
-      font-weight: bold;
-      box-shadow: 0 8px 18px rgba(63, 47, 36, 0.22);
-    }
-
-    .footer-note {
-      font-size: 0.78rem;
-      margin-top: 12px;
-      color: #7d6654;
-      line-height: 1.4;
+    .scripture-output {
+      min-height: 110px;
+      font-size: 0.94rem;
     }
 
     .flowers {
       position: absolute;
       inset: auto 0 0 0;
-      height: 95px;
+      height: 82px;
       pointer-events: none;
-      opacity: 0.85;
-      background: linear-gradient(transparent, rgba(255, 246, 230, 0.95));
+      opacity: 0.88;
+      background: linear-gradient(transparent, rgba(255, 246, 230, 0.98));
       display: flex;
       justify-content: center;
       align-items: end;
-      font-size: 2rem;
+      font-size: 1.85rem;
       padding-bottom: 12px;
-    }
-
-    @media (min-width: 900px) {
-      .phone-frame {
-        max-width: 900px;
-        min-height: 720px;
-        border-radius: 36px;
-      }
-
-      .button-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      .output-card {
-        min-height: 230px;
-        font-size: 1.25rem;
-      }
     }
   </style>
 </head>
@@ -192,25 +172,38 @@
 
     <div class="wildflower-divider">🌼 🌿 🌸 🌾 🌻</div>
 
-    <section class="button-grid">
-      <button onclick="generateNickname()">Cute Nickname</button>
-      <button onclick="generateAmazingThing()">Something Amazing</button>
-      <button onclick="generateHaiku()">Haiku</button>
-      <button onclick="generateScripture()">Scripture for Her</button>
-    </section>
+    <section class="section-stack">
+      <div class="generator-box">
+        <h2>Nicknames</h2>
+        <button onclick="generateNickname()">Generate a cute nickname</button>
+        <div class="mini-output" id="nicknameOutput">
+          Tap to bloom a nickname.
+        </div>
+      </div>
 
-    <section class="output-card" id="output">
-      Tap a button and let the flowers say something sweet.
-    </section>
+      <div class="generator-box">
+        <h2>Something Amazing</h2>
+        <button onclick="generateAmazingThing()">Generate something amazing</button>
+        <div class="mini-output" id="amazingOutput">
+          Tap to say something beautiful about Juliet.
+        </div>
+      </div>
 
-    <section class="playlist">
-      <a href="https://open.spotify.com/search/Zach%20Bryan%20Charles%20Wesley%20Godwin" target="_blank">
-        Play Juliet’s Playlist
-      </a>
+      <div class="generator-box">
+        <h2>Haiku</h2>
+        <button onclick="generateHaiku()">Generate a haiku</button>
+        <div class="mini-output" id="haikuOutput">
+          Tap for a tiny poem.
+        </div>
+      </div>
 
-      <p class="footer-note">
-        Replace this with your own Spotify, Apple Music, or YouTube playlist link.
-      </p>
+      <div class="generator-box">
+        <h2>Scripture</h2>
+        <button onclick="generateScripture()">Generate a scripture</button>
+        <div class="mini-output scripture-output" id="scriptureOutput">
+          Tap for a scripture.
+        </div>
+      </div>
     </section>
 
     <div class="flowers">🌷 🌼 🌻 🌸 🌿 🌺 🌾</div>
@@ -462,11 +455,11 @@
     }
 
     function generateNickname() {
-      document.getElementById("output").textContent = randomFrom(nicknames);
+      document.getElementById("nicknameOutput").textContent = randomFrom(nicknames);
     }
 
     function generateAmazingThing() {
-      document.getElementById("output").textContent = randomFrom(amazingThings);
+      document.getElementById("amazingOutput").textContent = randomFrom(amazingThings);
     }
 
     function generateHaiku() {
@@ -475,11 +468,11 @@
         randomFrom(haikuLinesTwo) + "\n" +
         randomFrom(haikuLinesThree);
 
-      document.getElementById("output").textContent = haiku;
+      document.getElementById("haikuOutput").textContent = haiku;
     }
 
     function generateScripture() {
-      document.getElementById("output").textContent = randomFrom(scriptures);
+      document.getElementById("scriptureOutput").textContent = randomFrom(scriptures);
     }
   </script>
 </body>

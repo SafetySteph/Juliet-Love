@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Princess Juliet</title>
+    <title>Juliet Chevelle Generator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
@@ -13,15 +13,12 @@
         margin: 0;
         min-height: 100vh;
         font-family: Georgia, serif;
-
         background:
-          linear-gradient(rgba(255, 245, 235, 0.6), rgba(255, 245, 235, 0.6)),
+          linear-gradient(rgba(255, 245, 235, 0.55), rgba(255, 245, 235, 0.55)),
           url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
-
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-
         display: flex;
         justify-content: center;
         align-items: center;
@@ -29,43 +26,89 @@
         color: #4a2814;
       }
 
-      .container {
-        width: 100%;
-        max-width: 1100px;
-        display: grid;
-        grid-template-columns: 1fr 1.4fr 1fr;
-        gap: 24px;
-        align-items: center;
+      .phone {
+        width: 390px;
+        max-width: 100%;
+        min-height: 760px;
+        background: #fffaf5;
+        border: 10px solid #3a2418;
+        border-radius: 48px;
+        box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+        position: relative;
       }
 
-      .panel {
-        background: rgba(255, 250, 245, 0.92);
-        border: 3px solid #9b6337;
-        border-radius: 28px;
+      .notch {
+        width: 120px;
+        height: 26px;
+        background: #3a2418;
+        border-radius: 0 0 18px 18px;
+        margin: 0 auto;
+      }
+
+      .screen {
         padding: 24px;
         text-align: center;
-        box-shadow: 0 18px 45px rgba(70, 35, 15, 0.28);
+      }
+
+      .emoji {
+        font-size: 34px;
+        margin-top: 8px;
       }
 
       h1 {
-        margin: 0 0 8px;
+        margin: 8px 0 6px;
         color: #7a3e2d;
-        font-size: 32px;
+        font-size: 30px;
       }
 
-      h2 {
-        margin: 0 0 14px;
-        color: #7a3e2d;
-        font-size: 22px;
-      }
-
-      p {
+      .subtitle {
         margin: 0 0 20px;
         color: #9b6337;
-        font-size: 15px;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .section {
+        background: rgba(255, 240, 245, 0.85);
+        border: 2px dashed #c48a45;
+        border-radius: 24px;
+        padding: 16px;
+        margin-bottom: 16px;
+      }
+
+      .label {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: #9b6337;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .box {
+        background: #fffaf5;
+        border-radius: 18px;
+        padding: 16px;
+        min-height: 64px;
+        font-size: 18px;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        white-space: pre-line;
+        color: #4a2814;
+        box-shadow: inset 0 0 16px rgba(196, 138, 69, 0.14);
+      }
+
+      .haiku-box {
+        min-height: 170px;
+        font-size: 20px;
+        line-height: 1.7;
       }
 
       button {
+        width: 100%;
         background: linear-gradient(145deg, #d99abf, #a45a2a);
         color: white;
         border: 2px solid #7b4a2f;
@@ -75,7 +118,7 @@
         font-weight: bold;
         font-size: 15px;
         box-shadow: 0 5px 0 #7b4a2f;
-        margin-bottom: 18px;
+        margin-top: 12px;
       }
 
       button:active {
@@ -83,79 +126,81 @@
         box-shadow: 0 2px 0 #7b4a2f;
       }
 
-      .box {
-        background: #fff0f5;
-        border: 2px dashed #c48a45;
-        border-radius: 20px;
-        padding: 20px;
-        min-height: 100px;
-        font-size: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        white-space: pre-line;
-        line-height: 1.6;
+      .button-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-top: 10px;
       }
 
-      .middle .box {
-        min-height: 220px;
-        font-size: 22px;
-        background: linear-gradient(180deg, #fffaf5, #fff0f5);
+      .home-bar {
+        width: 120px;
+        height: 5px;
+        background: #3a2418;
+        border-radius: 999px;
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
       }
 
-      .emoji {
-        font-size: 30px;
-        margin-bottom: 10px;
-      }
-
-      @media (max-width: 850px) {
-        .container {
-          grid-template-columns: 1fr;
+      @media (max-width: 430px) {
+        body {
+          padding: 12px;
+          align-items: flex-start;
         }
 
-        .middle {
-          order: -1;
+        .phone {
+          border-width: 8px;
+          border-radius: 40px;
+          min-height: 720px;
+        }
+
+        .screen {
+          padding: 20px;
         }
 
         h1 {
-          font-size: 28px;
+          font-size: 27px;
         }
 
-        .middle .box {
-          font-size: 20px;
+        .haiku-box {
+          min-height: 155px;
+          font-size: 19px;
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="container">
+    <div class="phone">
+      <div class="notch"></div>
 
-      <!-- LEFT -->
-      <div class="panel">
-        <div class="emoji">🤍🌸</div>
-        <h2>Nickname</h2>
-        <button onclick="generateNickname()">Generate Nickname</button>
-        <div id="nicknameBox" class="box">nickname appears here</div>
-      </div>
-
-      <!-- CENTER -->
-      <div class="panel middle">
-        <div class="emoji">🌾🐎🌸</div>
+      <div class="screen">
+        <div class="emoji">🌸🤠🌾</div>
         <h1>Juliet Chevelle</h1>
-        <p>A deep ranch haiku generator</p>
-        <button onclick="generateHaiku()">Generate Haiku</button>
-        <div id="haikuBox" class="box">haiku appears here</div>
+        <p class="subtitle">a soft poem for a one of a kind girl</p>
+
+        <div class="section">
+          <div class="label">Nickname</div>
+          <div id="nicknameBox" class="box">tap to generate a nickname</div>
+          <button onclick="generateNickname()">Generate Nickname</button>
+        </div>
+
+        <div class="section">
+          <div class="label">Amazing Thing</div>
+          <div id="amazingBox" class="box">tap to generate something amazing</div>
+          <button onclick="generateAmazingThing()">Generate Amazing Thing</button>
+        </div>
+
+        <div class="section">
+          <div class="label">Haiku</div>
+          <div id="haikuBox" class="box haiku-box">tap to generate a haiku</div>
+          <button onclick="generateHaiku()">Generate Haiku</button>
+        </div>
       </div>
 
-      <!-- RIGHT -->
-      <div class="panel">
-        <div class="emoji">✨🤠</div>
-        <h2>Amazing Things</h2>
-        <button onclick="generateAmazingThing()">Generate Amazing Thing</button>
-        <div id="amazingBox" class="box">amazing thing appears here</div>
-      </div>
-
+      <div class="home-bar"></div>
     </div>
 
     <script>
@@ -176,7 +221,7 @@
         const ranchWords = [
           "Cowgirl", "Wildflower", "Boots", "Belle", "Angel", "Princess",
           "Rider", "Rose", "Darlin", "Meadow", "Dove", "Heart", "Muse",
-          "Trail Queen", "Prairie Pearl", "Sunshine"
+          "Trail Queen", "Prairie Pearl", "Sunshine", "Squishy", "Princess"
         ];
 
         currentNickname = pick(softWords) + " " + pick(ranchWords);
